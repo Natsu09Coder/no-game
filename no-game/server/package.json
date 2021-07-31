@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "author": "Stéphane Fidanza <stephane.fidanza@gmail.com>",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongodb": "^3.5.9"
+    "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.12"
   },
   "scripts": {
     "start": "node --experimental-json-modules index.js",

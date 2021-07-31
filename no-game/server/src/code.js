@@ -1,6 +1,6 @@
 import express from "express";
 
-export default function getRouter(db, validCode) {
+export default function getRouter(validCode) {
 	const router = express.Router();
 
 	router.get('/', function (request, response) {
