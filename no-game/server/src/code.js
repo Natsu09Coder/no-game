@@ -1,7 +1,7 @@
-import express from "express";
+import { Router } from "express";
 
 export default function getRouter(validCode) {
-	const router = express.Router();
+	const router = Router();
 
 	router.get('/', function (request, response) {
 		const guess = request.query.guess;

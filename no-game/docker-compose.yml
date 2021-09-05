@@ -1,18 +1,18 @@
 version: '3.8'
 services:
   nginx:
-    build: ./client
+    image: sfidanza/no-game-frontend
     ports:
       - "8070:8080"
-    depends_on:
-      - app
+    # depends_on: # not supported by docker stack and not resilient anyway (if a dependency crashes)
+    #   - app
     restart: always
     
   app:
-    build: ./server
+    image: sfidanza/no-game-backend
     environment:
       - NODE_PORT=9090
       - ADMIN_CODE
-    expose:
-      - 9090
+    # expose: # indicative only as all ports are reachable anyway inside the virtual network
+    #   - 9090
     restart: always
