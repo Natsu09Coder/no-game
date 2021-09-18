@@ -2,7 +2,7 @@ version: "3"
 
 services:
   minecraft:
-    image: itzg/minecraft-server
+    image: itzg/minecraft-server:java11
     container_name: minecraft
     tty: true
     stdin_open: true
@@ -14,6 +14,9 @@ services:
       - EULA=TRUE
       - ENABLE_AUTOPAUSE=TRUE
       - MAX_TICK_TIME=-1
+      - VERSION=1.16.5
+      - TYPE=FORGE
+      - OPS=NatsuGame
 
-    # volumes:
-    #   - /srv/volumes/minecraft_server:/data
+    volumes:
+      - /mnt/disk/minecraft-server:/data
