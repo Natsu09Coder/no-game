@@ -1,5 +1,5 @@
 import express from "express";
-import code from "./src/code.js";
+import code from "./code.js";
 
 const {
 	NODE_PORT,
