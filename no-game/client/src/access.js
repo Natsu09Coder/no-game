@@ -1,50 +1,14 @@
 let page = {};
 
 page.initialize = function() {
-    access.init();
 }
 
 /************************/
 let access = {};
 
-access.init = function() {
-    this.code = '';
-    this.retry = 3;
-
-    // Display initial code
-    access.displayCode();
-
-    // Attach onclick on keypad
-    document.querySelector("#keypad").addEventListener('click', function(event) {
-        let targetKey = event.target.dataset.type;
-        if (targetKey) {
-            access.handleKey(targetKey);
-        }
-    })
-};
-
-access.handleKey = function(key) {
-    switch (key) {
-        case 'OK':
-            this.validateCode();
-            break;
-        case "CX":
-            if (this.code.length > 0) {
-                this.code = this.code.slice(0, -1);
-                this.displayCode();
-            }
-            break;
-        default:
-            if (this.code.length < 4) {
-                this.code += '' + key;
-                this.displayCode();
-            }
-            break;
-    }
-};
-
-access.validateCode = function() {
-    fetch('/api/code?guess=' + this.code)
+access.login = function(username, password) {
+    console.log(username, "et", password);
+    fetch(`/api/login?username=${username}&password=${password}`)
     .then(response => response.json())
     .then(result => {
         if (result.valid === true) {
@@ -55,33 +19,17 @@ access.validateCode = function() {
     });
 };
 
-access.displayCode = function() {
-    let showCode = '*'.repeat(this.code.length);
-    document.querySelector("#code").innerHTML = showCode || '&nbsp;';
-};
-
 access.correctCode = function() {
     document.querySelector("#incorrect").className = '';
     document.querySelector("#granted").className = 'active';
-    document.querySelector("#keypad").className = 'hidden';
     this.play(true);
 };
 
 access.wrongCode = function() {
-    this.retry--;
-    if (this.retry) {
-        this.code = '';
-        access.displayCode();
-        document.querySelector("#incorrect").className = 'active';
-        window.setTimeout(function() {
-            document.querySelector("#incorrect").className = '';
-        }, 2000);
-    } else {
+    document.querySelector("#incorrect").className = 'active';
+    window.setTimeout(function() {
         document.querySelector("#incorrect").className = '';
-        document.querySelector("#alert").className = 'active';
-        document.querySelector("#keypad").className = 'hidden';
-        this.play(false);
-    }
+    }, 2000);
 };
 
 access.play = function(success) {

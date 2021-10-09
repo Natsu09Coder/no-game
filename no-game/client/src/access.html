@@ -13,22 +13,12 @@
 <!-- <div id="logo"></div> -->
 <h3>Contrôle d'accès</h3>
 
-<div id="code"></div>
+<form onsubmit="access.login(this.username.value, this.password.value); return false;">
+    <input type="text" name="username" placeholder="username"/>
+    <input type="password" name="password" placeholder="password"/>
+    <input type="submit" value="login"/>
+</form>
 
-<div id="keypad">
-    <div data-type="7">7</div>
-    <div data-type="8">8</div>
-    <div data-type="9">9</div>
-    <div data-type="4">4</div>
-    <div data-type="5">5</div>
-    <div data-type="6">6</div>
-    <div data-type="1">1</div>
-    <div data-type="2">2</div>
-    <div data-type="3">3</div>
-    <div data-type="CX" class="action">&#x232b;</div>
-    <div data-type="0">0</div>
-    <div data-type="OK" class="action">Ok</div>
-</div>
 <div id="granted">Access Granted|<h5><a href="index.html">clique ici</a></h5></div>
 <div id="incorrect">Code incorrect...</div>
 <div id="alert">Alert! Intrusion!</div>

@@ -6,13 +6,30 @@ services:
       - "8070:8080"
     # depends_on: # not supported by docker stack and not resilient anyway (if a dependency crashes)
     #   - app
-    restart: always
     
   app:
     image: sfidanza/no-game-backend
     environment:
+      - MONGO_HOSTNAME=mongo
+      - MONGO_PORT=27017
       - NODE_PORT=9090
       - ADMIN_CODE
     # expose: # indicative only as all ports are reachable anyway inside the virtual network
     #   - 9090
-    restart: always
+
+  mongo:
+    image: mongo:4-focal  # MongoDB 5.0+ requires a CPU with AVX support. Does not run in production!
+    volumes:
+      - mongodb:/data/db
+    expose:
+      - 27017
+
+  admin:
+    image: mongo-express
+    ports:
+      - "8071:8081"
+    depends_on:
+      - mongo
+
+volumes:
+  mongodb:
