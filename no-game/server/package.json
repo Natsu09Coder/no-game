@@ -4,10 +4,10 @@
   "author": "Stéphane Fidanza <stephane.fidanza@gmail.com>",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^4.1.3"
+    "mongodb": "^4.1.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.15"
   },
   "scripts": {
     "start": "node --experimental-json-modules src/index.js",
