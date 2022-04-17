@@ -1,5 +1,5 @@
 import express from "express";
-import MongoClient from "mongodb";
+import { MongoClient } from 'mongodb';
 import code from "./code.js";
 import login from "./login.js";
 
@@ -15,7 +15,8 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-MongoClient.connect(`mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}`, { useUnifiedTopology: true })
+new MongoClient(`mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}`)
+	.connect()
 	.then(client => {
 		console.log("Connected to mongodb!");
 		const db = client.db('no-game');
