@@ -1,14 +1,14 @@
 version: '3.8'
 services:
   nginx:
-    image: ghcr.io/sfidanza/no-game-frontend
+    image: ghcr.io/Natsu09Coder/no-game-frontend
     ports:
       - "8070:8080"
     # depends_on: # not supported by docker stack and not resilient anyway (if a dependency crashes)
     #   - app
     
   app:
-    image: ghcr.io/sfidanza/no-game-backend
+    image: ghcr.io/Natsu09Coder/no-game-backend
     environment:
       - MONGO_HOSTNAME=mongo
       - MONGO_PORT=27017

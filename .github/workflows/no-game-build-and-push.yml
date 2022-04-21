@@ -33,10 +33,10 @@ jobs:
 
       - name: 🎉 Build and push frontend image
         run: |
-          docker build ./no-game/client/ -t $FRONTEND_IMAGE:${{ steps.version.outputs.VERSION }}
+          docker build ./client/ -t $FRONTEND_IMAGE:${{ steps.version.outputs.VERSION }}
           docker push $FRONTEND_IMAGE:${{ steps.version.outputs.VERSION }}
 
       - name: 🎉 Build and push backend image
         run: |
-          docker build ./no-game/server/ -t $BACKEND_IMAGE:${{ steps.version.outputs.VERSION }}
+          docker build ./server/ -t $BACKEND_IMAGE:${{ steps.version.outputs.VERSION }}
           docker push $BACKEND_IMAGE:${{ steps.version.outputs.VERSION }}
