@@ -2,6 +2,8 @@ version: '3.8'
 services:
   nginx:
     build: ./client
+    ports:
+      - "8070:8080"
     volumes:
       - ./client/src:/var/www/html
   
@@ -13,6 +15,11 @@ services:
     ports:
       - "9229:9229"
     command: npm run debug
+
+  admin:
+    image: mongo-express
+    ports:
+      - "8071:8081"
 
 volumes:
   node_modules:

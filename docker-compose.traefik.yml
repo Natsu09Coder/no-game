@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  nginx:
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.no-game.rule=Host(`no-game.dagobah-online.com`)
+        - traefik.http.services.no-game.loadbalancer.server.port=8080
+        # Activate https
+        - traefik.http.routers.no-game.tls=true
+        - traefik.http.routers.no-game.tls.certresolver=myresolver
+        - traefik.http.routers.no-game.middlewares=security@file
+    networks:
+      - gateway
+      - default
+
+  # admin:
+  #   deploy:
+  #     labels:
+  #       - traefik.enable=true
+  #       - traefik.http.routers.no-game-admin.rule=Host(`no-game-admin.localhost`)
+  #       - traefik.http.services.no-game-admin.loadbalancer.server.port=8081
+  #       # Activate https
+  #       - traefik.http.routers.no-game-admin.tls=true
+  #       - traefik.http.routers.no-game-admin.tls.certresolver=myresolver
+  #       - traefik.http.routers.no-game-admin.middlewares=security@file
+  #   networks:
+  #     - gateway
+  #     - default
+
+networks:
+  gateway:
+    external: true
+    name: gateway
