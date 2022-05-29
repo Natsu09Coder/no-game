@@ -2,8 +2,6 @@ version: '3.8'
 services:
   nginx:
     image: ghcr.io/natsu09coder/no-game-frontend
-    ports:
-      - "8070:8080"
     # depends_on: # not supported by docker stack and not resilient anyway (if a dependency crashes)
     #   - app
     
@@ -24,12 +22,8 @@ services:
     # expose:
     #   - 27017
 
-  admin:
-    image: mongo-express
-    ports:
-      - "8071:8081"
-    depends_on:
-      - mongo
+  # admin:
+  #   image: mongo-express
 
 volumes:
   mongodb:
