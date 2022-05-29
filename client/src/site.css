@@ -2,8 +2,16 @@ html {
 	height: 100%;
 }
 body {
-	background-color:rgb(43, 43, 44);
-	color: white;
+	background-image: url("images/hokusai.png") ;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+#id {
+
+	
+    
+	background-image: url("images/pain.png");
 }
 #logo {
 
