@@ -4,31 +4,6 @@ html {
 body {
 	background-color: rgb(100, 100, 100);
 }
-#hokusai {
-	background-image: url("images/hokusai.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-#pan {
-	position: absolute;
-	bottom: 50%;
-	right: 0%;
-	width: 300px;
-	height: 300px; 
-	background-size: cover;
-    background-repeat: no-repeat;
-	background-image: url("images/pain.png");
-	background-position:center;
-}
-#paina {
-	background-color: white;
-	color: black;
-	padding: 1em;
-	margin: 1em;
-	border-radius: 1em;
-	position: absolute;
-	bottom: 0%;
-}
 #logo {
 
 	position: absolute;
@@ -126,6 +101,35 @@ ul {
 	box-shadow: 0 10px 10px 0 #494949be;
 	text-decoration: none;
 }
+
+/***[PAN]****************/
+#hokusai {
+	background-image: url("images/hokusai.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#pan {
+	position: absolute;
+	bottom: 50%;
+	right: 0%;
+	width: 300px;
+	height: 300px; 
+	background-size: cover;
+    background-repeat: no-repeat;
+	background-image: url("images/pain.png");
+	background-position:center;
+	animation-name: example;
+  animation-duration: 1s;
+}
+#paina {
+	background-color: white;
+	color: black;
+	padding: 1em;
+	margin: 1em;
+	border-radius: 1em;
+	position: absolute;
+	bottom: 0%;
+}
 .monBoutton3 {
 	background-color:rgba(255, 0, 0, 0.918);
 	color:rgb(231, 255, 249);
@@ -135,8 +139,13 @@ ul {
 	cursor: pointer; 
 	box-shadow: 0 10px 10px 0 #494949be;
 	text-decoration: none;
+	animation-name: example;
+  animation-duration: 1s;
 }
-
+@keyframes example {
+	from {padding: 25px;}
+  to {padding: 5px;}
+}
 /***[Access]************/
 #username {
 	width: 366px;
