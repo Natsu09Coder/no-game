@@ -17,7 +17,7 @@ services:
     command: npm run debug
 
   admin:
-    image: mongo-express:1.0.0-alpha
+    image: mongo-express:1.0.0-20
     ports:
       - "8071:8081"
 
