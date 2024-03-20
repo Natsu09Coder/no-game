@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Stéphane Fidanza <stephane.fidanza@gmail.com>",
   "dependencies": {
-    "express": "4.18.3",
+    "express": "4.19.0",
     "mongodb": "6.5.0"
   },
   "devDependencies": {
