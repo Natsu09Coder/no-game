@@ -24,7 +24,10 @@ new MongoClient(`mongodb://${MONGO_HOSTNAME}:${MONGO_PORT}`)
 		app.use('/api/code', code(db, ADMIN_CODE));
 		app.use('/api/login', login(db));
 
-		app.listen(NODE_PORT, function () {
+		app.listen(NODE_PORT, (error) => {
+			if (error) {
+				throw error; // e.g. EADDRINUSE
+			}
 			console.log(`App listening on port ${NODE_PORT}!`);
 		});
 	}).catch(console.error);
