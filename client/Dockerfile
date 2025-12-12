@@ -1,6 +1,6 @@
-FROM bitnami/nginx:1.29.1
+FROM nginx:1.29.4-alpine
 
-#RUN rm /etc/nginx/conf.d/default.conf
-COPY sites-available/no-game.conf /opt/bitnami/nginx/conf/server_blocks/
+RUN rm /etc/nginx/conf.d/default.conf
+COPY sites-available/no-game.conf /etc/nginx/conf.d/
 
 COPY ./src /var/www/html
