@@ -11,7 +11,7 @@ services:
       - ADMIN_CODE
 
   mongo:
-    image: mongo:4.4.29-focal  # MongoDB 5.0+ requires a CPU with AVX support. Does not run in production!
+    image: mongo:4.4.30-focal  # MongoDB 5.0+ requires a CPU with AVX support. Does not run in production!
     volumes:
       - mongodb:/data/db
 
