@@ -131,6 +131,9 @@ const barConfig = {
         scales: {
             x: {
                 stacked: false
+            },
+            y: {
+                stacked: false
             }
         }
     }
@@ -140,3 +143,10 @@ const barChart = new Chart(
     bar,
     barConfig
 )
+
+const switcher2 = document.getElementById('stack-cluster');
+switcher2.onclick = () => {
+    barChart.config.options.scales.x.stacked = !barChart.config.options.scales.x.stacked;
+    barChart.config.options.scales.y.stacked = !barChart.config.options.scales.y.stacked;
+    barChart.update();
+};
