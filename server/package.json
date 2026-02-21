@@ -7,7 +7,7 @@
     "mongodb": "7.1.0"
   },
   "devDependencies": {
-    "nodemon": "3.1.13"
+    "nodemon": "3.1.14"
   },
   "scripts": {
     "start": "node src/index.js",
